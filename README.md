@@ -1,2 +1,10 @@
+
 # osgar
-Junk drawer for me
+
+
+# Things to do
+
+* DNS naming
+* Backups
+* Clean up virtual networking, iptables
+
