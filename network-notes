@@ -1,0 +1,37 @@
+
+================================================================================
+ROUTE CONFIGS
+
+THIS WORKS / ADDED TO BYRD
+sudo route add -net 192.168.122.0 netmask 255.255.255.0 gw 71.19.153.130
+
+## static route on 71 guest
+/etc/sysconfig/network-scripts/route-eth0
+
+192.168.122.0/24 via 71.19.153.130 dev eth0                                                         
+
+## on troll
+iptables -I FORWARD 1 -i br0 -o virbr0 -j ACCEPT
+iptables -I FORWARD 2 -i virbr0 -o br0 -j ACCEPT
+
+==============================
+troll firewall is off
+
+PASS  i can ping byrd from belgrano
+PASS  i can ping belgrano from byrd
+FAIL  i can ping internet from belgrano
+PASS  i can ssh belgrano from byrd
+
+troll firewall is on
+
+PASS  i can ping byrd from belgrano
+FAIL  i can ping belgrano from byrd
+PASS  i can ping internet from belgrano
+
+works after 1st line, can ping belgrano
+
+
+
+
+
+
